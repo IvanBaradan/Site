@@ -1,0 +1,34 @@
+<!-- forms.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактная форма</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключите ваш CSS файл -->
+</head>
+<body>
+    <header>
+        <h1>Связаться с нами по поводу концертов</h1>
+    </header>
+    
+    <div class="content">
+        <form action="submit_form.php" method="post"> <!-- Укажите обработчик формы -->
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Ваш email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Ваше сообщение:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Ваше название. Все права защищены.</p>
+    </footer>
+</body>
+</html>

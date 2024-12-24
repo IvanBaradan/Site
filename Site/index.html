@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анизотропия - Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для модального окна */
+        .modal {
+            display: none; /* Скрываем модальное окно по умолчанию */
+            position: fixed;
+            z-index: 1000; /* Устанавливаем порядок наложения */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Включаем прокрутку, если нужно */
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+        }
+        .modal-content {
+            background-color: rgba(30, 30, 30, 0.9); /* Темный полупрозрачный фон */
+            color: white; /* Цвет текста */
+            margin: 15% auto; /* Центрируем модальное окно */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ширина модального окна */
+            max-width: 500px; /* Максимальная ширина */
+            border-radius: 10px; /* Закругляем углы */
+        }
+        .close {
+            color: #aaa; /* Цвет кнопки закрытия */
+            float: right; /* Положение кнопки */
+            font-size: 28px; /* Размер шрифта */
+            font-weight: bold; /* Жирный шрифт */
+        }
+        .close:hover,
+        .close:focus {
+            color: white; /* Цвет при наведении */
+            text-decoration: none; /* Убираем подчеркивание */
+            cursor: pointer; /* Курсор в виде указателя */
+        }
+
+        /* Стили для кнопок с песнями */
+        .item {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .item button {
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+            border: none; /* Убираем рамку */
+            color: white; /* Цвет текста */
+            padding: 10px; /* Отступы */
+            cursor: pointer; /* Курсор указателя */
+            border-radius: 10px; /* Закругляем углы */
+            transition: background-color 0.3s; /* Плавный переход цвета фона */
+        }
+
+        .item button:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Более темный фон при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Фоновое изображение -->
+    <div class="content">
+        <header>
+            <h1>Анизотропия</h1>
+            <div class="toggle-button" onclick="toggleDescription()">
+                <span class="arrow" id="arrow">▼</span> Описание
+            </div>
+            <div class="description" id="description">
+                <p>Анизотропия - русская рок группа. Мы будем рады провести рок концерт или выступить на музыкальном фестивале. Если вы хотите послушать качественную рок-музыку, то наши песни заставят вас встать с дивана или кровати. В наше время найти крутую и современную рок-музыку довольно сложно, но наша группа может помочь вам решить эту проблему.</p>
+            </div>
+            <div class="links">
+                <p>
+                    <a href="https://t.me/Anizotropya_Bot" style="color: white;">Опрос</a> |
+                    <a href="https://t.me/anizotropya" style="color: white;">Группа в Телеграмме</a> |
+                    <a href="https://vk.com/anizotropya" style="color: white;">Группа в ВК</a> |
+                    <a href="https://music.yandex.ru/artist/19184160" style="color: white;">Мы в Яндекс музыке</a>
+                </p>
+            </div>
+            <img src="Name.png" alt="Обложка группы" style="margin-top: 10px; width: 100%; max-width: 300px;"> <!-- Уменьшаем размер обложки -->
+        </header>
+        <main>
+            <h2>Песни</h2>
+            <div class="item-container">
+                <div class="item">
+                    <button onclick="openModal('Призрак ничего', 'Сингл: Призрак ничего<br>Исполнитель: Анизотропия<br>Год: 2024<br>Жанр: Альтернатива<br><a href=\'https://music.yandex.ru/album/34199649\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Ghost%20of%20Nothing.png" alt="Призрак ничего" style="width: 150px; height: 150px;">
+                        <p>Призрак ничего</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('404', 'Сингл: 404<br>Исполнитель: Анизотропия<br>Год: 2023<br>Жанр: Иностранный рок<br><a href=\'https://music.yandex.ru/album/26012876\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="404.png" alt="404" style="width: 150px; height: 150px;">
+                        <p>404</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('Ангелы', 'Сингл: Ангелы<br>Исполнители: Анизотропия, Иван Барадан<br>Год: 2023<br>Жанр: Альтернатива<br><a href=\'https://music.yandex.ru/album/26830938\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Angels.png" alt="Ангелы" style="width: 150px; height: 150px;">
+                        <p>Ангелы</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('Огонь', 'Сингл: Огонь<br>Исполнитель: Анизотропия<br>Год: 2024<br>Жанр: Альтернатива<br><a href=\'https://music.yandex.ru/album/29255245\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Fire.png" alt="Огонь" style="width: 150px; height: 150px;">
+                        <p>Огонь</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('Пустота', 'Сингл: Пустота<br>Исполнитель: Анизотропия<br>Год: 2024<br>Жанр: Альтернатива<br><a href=\'https://music.yandex.ru/album/30290053\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Emptiness.png" alt="Пустота" style="width: 150px; height: 150px;">
+                        <p>Пустота</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('Абсолют', 'Сингл: Абсолют<br>Исполнитель: Анизотропия<br>Год: 2023<br>Жанр: Иностранный рок<br><a href=\'https://music.yandex.ru/album/25660120\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Absolute.png" alt="Абсолют" style="width: 150px; height: 150px;">
+                        <p>Абсолют</p>
+                    </button>
+                </div>
+                <div class="item">
+                    <button onclick="openModal('Тьма', 'Сингл: Тьма<br>Исполнители: Анизотропия, Иван Барадан<br>Год: 2023<br>Жанр: Иностранный рок<br><a href=\'https://music.yandex.ru/album/26365309\'>Слушать на Яндекс Музыке</a>')">
+                        <img src="Darkness.png" alt="Тьма" style="width: 150px; height: 150px;">
+                        <p>Тьма</p>
+                    </button>
+                </div>
+            </div>
+            <button onclick="openModal('Задать вопрос', 'Если у вас есть вопросы, вы можете обратиться к нам через <a href=\'mailto:anizotropya@gmail.com\'>anizotropya@gmail.com</a> или написать в <a href=\'https://t.me/anizotropya\'>Телеграмм</a>.')"
+                    style="margin-top: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border: none; border-radius: 10px; cursor: pointer;">
+                Задать вопрос
+            </button>
+            <button onclick="window.location.href='forms.html'" style="margin-top: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border: none; border-radius: 10px; cursor: pointer;">
+                Связаться с нами по поводу концертов
+            </button>
+        </main>
+    </div>
+    <footer>
+        <p>
+            <a href="https://web.telegram.org/a/#6053056908" style="color: white;">Опрос</a>
+        </p>
+        <p>
+            <a href="https://t.me/anizotropya" style="color: white;">Группа в Телеграмме</a> |
+            <a href="https://vk.com/anizotropya" style="color: white;">Группа в ВК</a> |
+            <a href="https://music.yandex.ru/artist/19184160" style="color: white;">Мы в Яндекс музыке</a>
+        </p>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription() {
+            var desc = document.getElementById("description");
+            var arrow = document.getElementById("arrow");
+            if (desc.style.display === "none" || desc.style.display === "") {
+                desc.style.display = "block";
+                desc.style.maxHeight = "200px"; // Установите максимальную высоту для плавного раскрытия
+                arrow.style.transform = "rotate(180deg)"; // Поворачиваем стрелочку
+            } else {
+                desc.style.maxHeight = "0"; // Скрываем текст
+                setTimeout(() => {
+                    desc.style.display = "none"; // Скрываем элемент после анимации
+                }, 300); // Время анимации
+                arrow.style.transform = "rotate(0deg)"; // Возвращаем стрелочку в исходное положение
+            }
+        }
+
+        function openModal(title, text) {
+            document.getElementById("modalTitle").innerHTML = title;
+            document.getElementById("modalText").innerHTML = text;
+            document.getElementById("myModal").style.display = "block"; // Показываем модальное окно
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none"; // Скрываем модальное окно
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
+https://github.com/IvanBaradan/Site.git

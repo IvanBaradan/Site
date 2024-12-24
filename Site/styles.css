@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    height: 100vh; /* Высота страницы */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Bg.jpg'); /* Устанавливаем фоновое изображение */
+    background-size: cover; /* Заполняем фон */
+    background-position: center; /* Центрируем фон */
+    z-index: 0; /* Устанавливаем порядок наложения */
+}
+
+.content {
+    position: relative; /* Для наложения контента */
+    z-index: 1; /* Устанавливаем порядок наложения */
+    padding: 20px; /* Отступы для контента */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для контента */
+    border-radius: 10px; /* Закругляем углы */
+    color: white; /* Цвет текста */
+    max-width: 800px; /* Максимальная ширина */
+    margin: auto; /* Центрируем контент */
+    margin-top: 100px; /* Отступ сверху для контента */
+}
+
+.description {
+    display: none;
+    margin-top: 20px; /* Увеличиваем отступ сверху для описания */
+    font-size: 1.1em;
+    color: gray; /* Серый цвет текста описания */
+    transition: max-height 0.3s ease; /* Плавный переход */
+    overflow: hidden; /* Скрыть переполнение */
+    max-height: 0; /* Начальное состояние */
+}
+
+.toggle-button {
+    cursor: pointer;
+    color: gray; /* Серый цвет текста кнопки */
+    text-decoration: underline;
+    margin-top: 10px; /* Отступ сверху */
+    display: block; /* Делаем кнопку блочным элементом */
+}
+
+.arrow {
+    display: inline-block;
+    margin-right: 5px;
+    transition: transform 0.3s ease; /* Плавный переход для стрелочки */
+}
+
+h1 {
+    font-size: 3em; /* Увеличиваем размер заголовка */
+}
+
+h2 {
+    margin-top: 20px; /* Отступ сверху для заголовка песен */
+}
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap; /* Оборачиваем элементы в контейнере */
+    gap: 10px; /* Отступы между элементами */
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон для элементов */
+    border-radius: 5px; /* Закругляем углы */
+    text-align: center; /* Центрируем текст */
+    padding: 10px; /* Отступы для элементов */
+    flex: 1 1 150px; /* Ширина элементов */
+}
+
+footer {
+    margin-top: 20px; /* Отступ сверху для футера */
+    text-align: center; /* Центрируем текст футера */
+    color: white; /* Цвет текста футера */
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Окно будет фиксировано на экране */
+    z-index: 1000; /* Установим порядок наложения */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Включаем прокрутку, если нужно */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Центрируем окно */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина модального окна */
+    border-radius: 5px; /* Скругление углов */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* Выравниваем кнопку закрытия вправо */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
